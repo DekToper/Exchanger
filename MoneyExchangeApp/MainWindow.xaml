@@ -1,0 +1,32 @@
+﻿<Window x:Class="MoneyExchangeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MoneyExchangeApp"
+        mc:Ignorable="d"
+        Title="Exchanged" Height="264" Width="944" Background="White">
+    <Grid>
+        <TextBox VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="26,44,0,0" x:Name="amountBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="60" Background="White" FontSize="20"/>
+        <Label Content="Amount: " HorizontalAlignment="Left" Margin="26,24,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF787676" Width="65"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="246,103,0,0" Stroke="#FF717171" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5">
+        </Rectangle>
+
+        <ListView x:Name="currencyFrom" Margin="246,44,0,0" HorizontalAlignment="Left" Width="180" Height="59" VerticalAlignment="Top"/>
+        <Button x:Name="fromButton" Content="⮟" HorizontalAlignment="Left" Margin="366,58,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Content="Converted to: " HorizontalAlignment="Left" Margin="499,24,0,0" VerticalAlignment="Top" FontSize="14" Foreground="#FF787676" Width="100"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="719,103,0,0" Stroke="#FF717171" VerticalAlignment="Top" Width="180" RenderTransformOrigin="0.5,0.5"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="499,104,0,0" Stroke="#FF717171" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.5,0.5"/>
+        <ListView x:Name="currencyTo" Margin="719,44,0,0" HorizontalAlignment="Left" Width="180" Height="60" VerticalAlignment="Top"/>
+        <Button x:Name="toButton" Content="⮟" HorizontalAlignment="Left" Margin="840,58,0,0" VerticalAlignment="Top" Width="44"/>
+        <Button x:Name="replaceButton" Content="⇄" HorizontalAlignment="Left" Margin="438,56,0,0" VerticalAlignment="Top" FontSize="20" Height="40"/>
+        <Label VerticalContentAlignment="Center" x:Name="resaultLabel" HorizontalAlignment="Left" Margin="499,44,0,0" VerticalAlignment="Top" Height="60" Width="200" FontSize="20" Foreground="Black"/>
+        <Button x:Name="exchangeButton" Content="Exchange" HorizontalAlignment="Left" Margin="26,144,0,0" VerticalAlignment="Top" Height="45" Width="124" FontSize="18" FontWeight="Bold"/>
+        <Frame NavigationUIVisibility="Hidden" Visibility="Hidden" x:Name="fromFrame" Margin="246,104,0,0" HorizontalAlignment="Left" Width="201" Height="59" VerticalAlignment="Top"/>
+        <Frame NavigationUIVisibility="Hidden" Visibility="Hidden" x:Name="toFrame" Margin="719,104,0,0" HorizontalAlignment="Left" Width="201" Height="59" VerticalAlignment="Top"/>
+        <Label x:Name="erroreLabel" HorizontalAlignment="Left" Margin="26,189,0,0" VerticalAlignment="Top" Foreground="#DDFF0000" FontStyle="Italic" FontWeight="Bold"/>
+        <Button Content="History" x:Name="historyButton" Height="32" VerticalAlignment="Top" HorizontalAlignment="Right" Width="82" Margin="0,2,2,0"/>
+
+
+    </Grid>
+</Window>
