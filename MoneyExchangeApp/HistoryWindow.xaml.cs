@@ -62,9 +62,11 @@ namespace MoneyExchangeApp
             {
                 try
                 {
+                    string searchDate = ConvertToSrting(searchBox.Text);
                     for (int i = 0; i < dataGrid.Items.Count; i++)
                     {
-                        if (!(dataGrid.Items[i] as DataRowView).Row[listBox.SelectedIndex].ToString().Contains(searchBox.Text))
+                        string date = (dataGrid.Items[i] as DataRowView).Row[listBox.SelectedIndex].ToString();
+                        if (!date.Contains(searchDate))
                         {
                             (dataGrid.Items[i] as DataRowView).Delete();
                             i--;
@@ -77,6 +79,52 @@ namespace MoneyExchangeApp
                 {
                 }
             }
+        }
+
+        private string ConvertToSrting(string dateTime)
+        {
+            if (dateTime.Contains('/'))
+            {
+                string[] buf = dateTime.Split('/');
+
+                string d = buf[0];
+                string m = buf[1];
+                string y = buf[2];
+
+                if(y.Contains(':'))
+                {
+                    y = y.Split(' ')[0] + ' ' + GetTime(y.Split(' ')[1], y.Split(' ')[2]);                
+                }
+
+                if (Convert.ToInt32(d) >= 10)
+                    return $"{m}.{d}.{y}";
+                else
+                    return $"{m}.0{d}.{y}";
+            }
+            else if (dateTime.Contains(':'))
+            {
+                return GetTime(dateTime.Split(' ')[0],dateTime.Split(' ')[1]);
+            }
+            else
+            {
+                return dateTime;
+            }
+        }
+
+        private string GetTime(string dateTime, string timeType)
+        {
+            string[] buf = dateTime.Split(':');
+            string h = buf[0];
+            string m = buf[1];
+            string s = buf[2];
+
+            if(timeType == "AM" && h == "12")
+                h = Math.Abs(Convert.ToInt32(h) - 12).ToString();
+            else if (timeType == "PM")
+            {
+                h = Math.Abs(Convert.ToInt32(h) + 12).ToString();
+            }
+            return $"{h}:{m}:{s}";
         }
     }
 }

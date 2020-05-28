@@ -7,8 +7,6 @@ namespace MoneyExchangeApp
     public class ExchangeRate
     {
         public dynamic rates { get; set; }
-        public string base_ { get; set; }
-        public string date { get; set; }
     }
 }
 
